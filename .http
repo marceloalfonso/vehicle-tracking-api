@@ -1,0 +1,38 @@
+// Find place
+GET http://localhost:3000/places?text=avenida governador valadares, betim, 1000
+
+###
+
+@originId = EkZBdi4gR292LiBWYWxhZGFyZXMsIDEwMDAgLSBTYW50byBBZm9uc28sIEJldGltIC0gTUcsIDMyNjIzLTU3NSwgQnJhc2lsIjESLwoUChIJja7gMwfdpgARgN9V_RFivpEQ6AcqFAoSCfmsiD4H3aYAEdRlj37c-uzz
+@destinationId = ChIJPUqddeKZpgARusD9CDpIBDQ
+
+###
+
+// Get directions
+GET http://localhost:3000/directions?originId={{ originId }}&destinationId={{ destinationId }}
+
+### 
+
+// Create route
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+  "name": "Rota 1",
+  "originId": "{{ originId }}",
+  "destinationId": "{{ destinationId }}"
+}
+
+### 
+
+// Get routes
+GET http://localhost:3000/routes
+
+###
+
+@routeId = 
+
+###
+
+// Get route
+GET http://localhost:3000/routes/{{ routeId }}
